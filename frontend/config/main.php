@@ -12,18 +12,9 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-//        'request' => [
-//            'csrfParam' => '_csrf',
-//        ],
-//        'user' => [
-//            'identityClass' => 'common\models\User',
-//            'enableAutoLogin' => true,
-//            'identityCookie' => ['name' => '_identity', 'httpOnly' => true, 'domain' => '.advanced.yii'],
-//        ],
-//        'session' => [
-//            // this is the name of the session cookie used for login on the frontend
-//            'name' => 'advanced',
-//        ],
+        'request' => [
+            'csrfParam' => '_csrf',
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -36,14 +27,20 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'tasks' => 'task/index',
+                'task/<id:\d+>' => 'task/one'
             ],
         ],
-        */
+        'taskMessenger' => [
+            'class' => \frontend\models\components\TaskMessengerComponent::class
+        ],
+        'language' => [
+            'class' => \frontend\models\components\LanguageComponent::class
+        ]
     ],
     'params' => $params,
 ];
