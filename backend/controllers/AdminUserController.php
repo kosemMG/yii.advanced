@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use frontend\models\tables\Users;
+use common\models\tables\Users;
 use backend\models\filters\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

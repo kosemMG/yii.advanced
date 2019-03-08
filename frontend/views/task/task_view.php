@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @var \frontend\models\tables\Tasks $taskModel
+ * @var \common\models\tables\Tasks $taskModel
  * @var \frontend\models\Upload $uploadModel
- * @var \frontend\models\tables\TaskComments $taskCommentForm
+ * @var \common\models\tables\TaskComments $taskCommentForm
  * @var integer $userId
  * @var array $statuses
  * @var array $users

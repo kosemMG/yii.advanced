@@ -4,7 +4,7 @@ namespace backend\models\filters;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\tables\Users;
+use common\models\tables\Users;
 
 /**
  * UserSearch represents the model behind the search form of `frontend\models\tables\Users`.

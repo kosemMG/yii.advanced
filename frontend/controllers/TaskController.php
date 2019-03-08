@@ -3,14 +3,14 @@
 namespace frontend\controllers;
 
 use backend\models\filters\TaskSearch;
-use frontend\models\tables\TaskComments;
-use frontend\models\tables\TaskFiles;
+use common\models\tables\TaskComments;
+use common\models\tables\TaskFiles;
 use frontend\models\Upload;
 use Yii;
-use frontend\models\tables\Tasks;
-use frontend\models\tables\TaskStatuses;
-use frontend\models\tables\Users;
-//use yii\data\ActiveDataProvider;
+use common\models\tables\Tasks;
+use common\models\tables\TaskStatuses;
+use common\models\tables\Users;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;

@@ -4,7 +4,7 @@ namespace backend\models\filters;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\tables\TaskStatuses;
+use common\models\tables\TaskStatuses;
 
 /**
  * TaskStatusSearch represents the model behind the search form of `frontend\models\tables\TaskStatuses`.

@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use frontend\models\tables\Tasks;
+use common\models\tables\Tasks;
 use backend\models\filters\TaskSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

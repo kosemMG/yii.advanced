@@ -4,13 +4,15 @@ namespace backend\models\filters;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\tables\Tasks;
+use common\models\tables\Tasks;
 
 /**
  * TaskSearch represents the model behind the search form of `frontend\models\tables\Tasks`.
  */
 class TaskSearch extends Tasks
 {
+    public $created_at_month;
+
     /**
      * {@inheritdoc}
      */
@@ -18,7 +20,7 @@ class TaskSearch extends Tasks
     {
         return [
             [['id', 'creator_id', 'executor_id', 'status_id'], 'integer'],
-            [['title', 'description', 'due_date', 'created_at', 'updated_at'], 'safe'],
+            [['title', 'description', 'due_date', 'created_at', 'updated_at', 'created_at_month'], 'safe'],
         ];
     }
 
@@ -68,7 +70,8 @@ class TaskSearch extends Tasks
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description]);
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(["MONTH(`created_at`)" => $this->created_at_month]);
 
         return $dataProvider;
     }
