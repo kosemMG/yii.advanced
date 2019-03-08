@@ -17,7 +17,10 @@ class TasksCest
         $I->click('About');
         $I->see('This is the About page.');
         $I->wait(2);
-        $I->seeElement('select');
-        $I->seeElement('button[type="submit"]');
+        $I->seeElement('.form-control');
+        $I->seeElement('button[@type="submit"]');
+        $I->click('button[@type="submit"]');
+        $I->seeElement('button[type="reset"]');
+        $I->click('button[type="reset"]');
     }
 }
