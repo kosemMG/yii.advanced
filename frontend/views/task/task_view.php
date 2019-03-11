@@ -77,7 +77,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'update');
 
         <div class="comments">
             <?php foreach ($taskModel->comments as $comment): ?>
-                <p><strong><?= $comment->user->name ?>:</strong></p>
+                <p><strong><?= $comment->user->username ?>:</strong></p>
                 <p><?= $comment->content ?></p>
             <?php endforeach; ?>
         </div>

@@ -39,6 +39,7 @@ return [
 //            'enablePrettyUrl' => true,
 //            'showScriptName' => false,
 //            'rules' => [
+//                'gii' => 'gii/index',
 //            ],
 //        ],
     ],

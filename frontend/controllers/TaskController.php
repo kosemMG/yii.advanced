@@ -140,7 +140,7 @@ class TaskController extends Controller
     private function getUsers()
     {
         return Users::find()
-            ->select(['name'])
+            ->select(['username'])
             ->indexBy('id')
             ->column();
     }

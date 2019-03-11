@@ -3,8 +3,8 @@
 namespace frontend\models\components;
 
 
-use frontend\models\tables\Tasks;
-use frontend\models\tables\Users;
+use common\models\tables\Tasks;
+use common\models\tables\Users;
 use yii\base\Component;
 use yii\base\Event;
 use Yii;
@@ -25,13 +25,13 @@ class TaskMessengerComponent extends Component
             $creator = Users::findOne($model->creator_id);
             $taskReference = $_SERVER['HTTP_ORIGIN'] . Url::to(['task/one', 'id' => $model->id]);
 
-            $body = "Dear {$executor->name}, you have received a new task {$model->title}.\n
+            $body = "Dear {$executor->username}, you have received a new task {$model->title}.\n
                 Please, follow to {$taskReference} \n
                 You should finish it until {$model->due_date}. Good luck!";
 
             Yii::$app->mailer->compose()
                 ->setTo($executor->email)
-                ->setFrom([$creator->email => $creator->name])
+                ->setFrom([$creator->email => $creator->username])
                 ->setSubject($this->subject)
                 ->setTextBody($body)
                 ->send();

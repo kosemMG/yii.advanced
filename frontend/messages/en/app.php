@@ -6,6 +6,7 @@ return [
     'about' => 'About',
     'contact' => 'Contact',
     'login' => 'Login',
+    'signup' => 'Signup',
     'logout' => 'Logout',
     'title' => 'Title',
     'due_date' => 'Due Date',

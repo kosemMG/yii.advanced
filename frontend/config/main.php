@@ -9,7 +9,7 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'language', 'taskMessenger'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -40,7 +40,15 @@ return [
         ],
         'language' => [
             'class' => \frontend\models\components\LanguageComponent::class
-        ]
+        ],
+        'i18n' => [
+            'translations' => [
+                'app' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@app/messages'
+                ]
+            ]
+        ],
     ],
     'params' => $params,
 ];

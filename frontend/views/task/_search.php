@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @var \frontend\models\tables\Tasks $model ;
+ * @var \common\models\tables\Tasks $model ;
  */
 
 use yii\widgets\ActiveForm;

@@ -3,7 +3,7 @@
 namespace frontend\widgets;
 
 
-use frontend\models\tables\Tasks;
+use common\models\tables\Tasks;
 use yii\base\Widget;
 
 class TaskPreviewWidget extends Widget

@@ -26,14 +26,6 @@ return [
             'hostname' => '127.0.0.1',
             'port' => 6379,
             'database' => 0
-        ],
-        'i18n' => [
-            'translations' => [
-                'app' => [
-                    'class' => \yii\i18n\PhpMessageSource::class,
-                    'basePath' => '@app/messages'
-                ]
-            ]
-        ],
+        ]
     ],
 ];

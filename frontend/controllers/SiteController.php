@@ -76,6 +76,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Changes website's language.
+     * @param $lang
+     */
+    public function actionLang($lang)
+    {
+        Yii::$app->session->set('lang', $lang);
+        $this->redirect(Yii::$app->request->referrer);
+    }
+
+    /**
      * Logs in a user.
      *
      * @return mixed
