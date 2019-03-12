@@ -34,7 +34,7 @@ class Chat extends ActiveRecord
     public function rules()
     {
         return [
-            [['message', 'author_id', 'channel', 'created_at'], 'required'],
+            [['message', 'author_id', 'channel'], 'required'],
             [['author_id'], 'integer'],
             [['created_at'], 'safe'],
             [['message', 'channel'], 'string', 'max' => 255],
