@@ -4,6 +4,7 @@ namespace console\components;
 
 
 use common\models\tables\Chat;
+use common\models\tables\Users;
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 use Ratchet\WebSocket\WsConnection;
@@ -65,12 +66,16 @@ class WebSocketServer extends Component implements MessageComponentInterface
         $chatData = json_decode($chatData, true);
         (new Chat($chatData))->save();
 
-        echo "{$from->resourceId}: {$chatData['message']}\n";
-
         $channel = $chatData['channel'];
+        $message = $chatData['message'];
+
+        $author_id = (int)$chatData['author_id'];
+        $author = (new Users())::findOne($author_id)->username;
 
         foreach ($this->clients[$channel] as $client) {
-            $client->send($chatData['message']);
+            $client->send("{$author}: {$message}");
         }
+
+        echo "{$from->resourceId}: {$author}: {$message}\n";
     }
 }
