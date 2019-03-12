@@ -22,7 +22,9 @@
         "yiisoft/yii2-imagine": "^2.1",
         "yiisoft/yii2-redis": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
-        "facebook/webdriver": "^1.6"
+        "facebook/webdriver": "^1.6",
+        "cboden/ratchet": "^0.4.1",
+        "ext-json": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

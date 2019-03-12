@@ -1,7 +1,7 @@
 <?php
 
 use yii\db\Migration;
-use frontend\models\tables\Tasks;
+use common\models\tables\Tasks;
 
 /**
  * Class m190211_163929_fk_users

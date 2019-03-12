@@ -88,4 +88,12 @@ class Users extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Tasks::className(), ['executor_id' => 'id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getChat()
+    {
+        return $this->hasMany(Chat::class, ['author_id' => 'id']);
+    }
 }

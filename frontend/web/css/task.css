@@ -54,3 +54,9 @@
     display:flex;
     justify-content: flex-end;
 }
+
+.message-area {
+    width: 400px;
+    height: 100px;
+    color: #000;
+}

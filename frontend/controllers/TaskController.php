@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use backend\models\filters\TaskSearch;
+use common\models\tables\Chat;
 use common\models\tables\TaskComments;
 use common\models\tables\TaskFiles;
 use frontend\models\Upload;
@@ -53,13 +54,17 @@ class TaskController extends Controller
 //            Yii::$app->session->setFlash('error', Yii::t('app', 'task-update-error'));
         }
 
+        $channel = "task-{$id}";
+
         return $this->render('task_view', [
             'taskModel' => $this->findModel($id),
             'uploadModel' => new Upload(),
             'taskCommentForm' => new TaskComments(),
             'userId' => Yii::$app->user->id,
             'users' => $this->getUsers(),
-            'statuses' => $this->getTaskStatuses()
+            'statuses' => $this->getTaskStatuses(),
+            'history' => Chat::getHistory($channel),
+            'channel' => $channel
         ]);
     }
 
