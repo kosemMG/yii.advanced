@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\filters\TaskSearch */
@@ -19,6 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Tasks', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+    <?php Pjax::begin(); ?>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -30,12 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'description',
             'creator_id',
             'executor_id',
-            //'due_date',
+            'due_date',
             //'status_id',
-            //'created_at',
+            'created_at',
             //'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
+    <?php Pjax::end(); ?>
 </div>
