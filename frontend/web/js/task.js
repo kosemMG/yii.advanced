@@ -1,13 +1,14 @@
 /* jshint -W097 */
-/*jshint esversion: 6 */
+/* jshint -W117 */
+/* jshint esversion: 6 */
 
 'use strict';
 
 if (!window.WebSocket) {
-    alert('Sorry. Your browser does not support web-sockets...');
+    alert(errorMessage);
 }
 
-let webSocket = new WebSocket('ws://front.advanced.yii:8080?channel=');
+let webSocket = new WebSocket('ws://front.advanced.yii:8080?channel=' + channelName);
 
 document.getElementById('chat_form')
     .addEventListener('submit', function (event) {

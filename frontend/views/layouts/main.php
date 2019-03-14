@@ -10,10 +10,13 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use frontend\assets\TasksCssAsset;
+use frontend\assets\TaskJsAsset;
 
 AppAsset::register($this);
 TasksCssAsset::register($this);
+TaskJsAsset::register($this);
 ?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
