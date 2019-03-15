@@ -54,18 +54,7 @@ class TaskController extends Controller
 //            Yii::$app->session->setFlash('error', Yii::t('app', 'task-update-error'));
         }
 
-        $channel = "task-{$id}";
-
-        return $this->render('task_view', [
-            'taskModel' => $this->findModel($id),
-            'uploadModel' => new Upload(),
-            'taskCommentForm' => new TaskComments(),
-            'userId' => Yii::$app->user->id,
-            'users' => $this->getUsers(),
-            'statuses' => $this->getTaskStatuses(),
-            'history' => Chat::getHistory($channel),
-            'channel' => $channel
-        ]);
+        return $this->renderTaskView($id);
     }
 
     /**
@@ -98,8 +87,11 @@ class TaskController extends Controller
 
     /**
      * Adds a comment to the task
+     * @param int $id
+     * @return string
+     * @throws NotFoundHttpException
      */
-    public function actionAddComment()
+    public function actionAddComment(int $id)
     {
         $model = new TaskComments();
 
@@ -109,7 +101,30 @@ class TaskController extends Controller
             Yii::$app->session->setFlash('error', Yii::t('app', 'comment-error'));
         }
 
-        $this->redirect(Yii::$app->request->referrer);
+//        $this->redirect(Yii::$app->request->referrer);
+
+        return $this->renderTaskView($id);
+    }
+
+    /**
+     * @param int $id
+     * @return string
+     * @throws NotFoundHttpException
+     */
+    private function renderTaskView(int $id)
+    {
+        $channel = "task-{$id}";
+
+        return $this->render('task_view', [
+            'taskModel' => $this->findModel($id),
+            'uploadModel' => new Upload(),
+            'taskCommentForm' => new TaskComments(),
+            'userId' => Yii::$app->user->id,
+            'users' => $this->getUsers(),
+            'statuses' => $this->getTaskStatuses(),
+            'history' => Chat::getHistory($channel),
+            'channel' => $channel
+        ]);
     }
 
     /**
