@@ -35,13 +35,15 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-//        'urlManager' => [
-//            'enablePrettyUrl' => true,
-//            'showScriptName' => false,
-//            'rules' => [
-//                'gii' => 'gii/index',
-//            ],
-//        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                'tasks' => 'admin-task',
+                'users' => 'admin-user',
+                'statuses' => 'admin-task-status'
+            ],
+        ],
     ],
     'params' => $params,
 ];
