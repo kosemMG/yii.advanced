@@ -101,9 +101,15 @@ class TaskController extends Controller
             Yii::$app->session->setFlash('error', Yii::t('app', 'comment-error'));
         }
 
-//        $this->redirect(Yii::$app->request->referrer);
+        if (Yii::$app->request->isAjax) {
+            return $this->renderAjax('_comments', [
+                'taskModel' => $this->findModel($id),
+                'taskCommentForm' => new TaskComments(),
+                'userId' => Yii::$app->user->id
+            ]);
+        }
 
-        return $this->renderTaskView($id);
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
     /**
