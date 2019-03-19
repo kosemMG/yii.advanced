@@ -7,7 +7,15 @@ return [
         '@img' => '@app/web/img'
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'bootstrap' => ['projectMessenger'],
     'components' => [
+        'projectMessenger' => [
+            'class' => \common\components\ProjectMessengerComponent::class
+        ],
+        'bot' => [
+            'class' => \SonkoDmitry\Yii\TelegramBot\Component::class,
+            'apiToken' => '836668590:AAH3ynH2hO7WpvObyUrysFVeuH9FCipsI9E',
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
