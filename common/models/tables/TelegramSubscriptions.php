@@ -51,7 +51,7 @@ class TelegramSubscriptions extends \yii\db\ActiveRecord
      * @param $fromId
      * @return bool
      */
-    public function subscriberExists($fromId)
+    public static function subscriberExists($fromId)
     {
         $subscriberIds = TelegramSubscriptions::find()
             ->select('telegram_user_id')

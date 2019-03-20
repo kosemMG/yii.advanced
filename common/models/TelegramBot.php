@@ -48,7 +48,7 @@ class TelegramBot extends Model
                 $response .= "/sp_create  - project creation subscription.\n";
                 break;
             case "/sp_create":
-                if (!(new TelegramSubscriptions())->subscriberExists($fromId)) {
+                if (!TelegramSubscriptions::subscriberExists($fromId)) {
                     (new TelegramSubscriptions([
                         'telegram_user_id' => $fromId,
                         'channel' => TelegramSubscriptions::PROJECT_CREATION
