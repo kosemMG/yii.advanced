@@ -45,4 +45,25 @@ class TelegramSubscriptions extends \yii\db\ActiveRecord
             'channel' => 'Channel',
         ];
     }
+
+    /**
+     * Checks if the subscriber already exists.
+     * @param $fromId
+     * @return bool
+     */
+    public function subscriberExists($fromId)
+    {
+        $subscriberIds = TelegramSubscriptions::find()
+            ->select('telegram_user_id')
+            ->where(['channel' => TelegramSubscriptions::PROJECT_CREATION])
+            ->column();
+
+        foreach ($subscriberIds as $subscriberId) {
+            if ($subscriberId == $fromId) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

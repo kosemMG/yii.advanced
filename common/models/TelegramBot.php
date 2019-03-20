@@ -48,12 +48,15 @@ class TelegramBot extends Model
                 $response .= "/sp_create  - project creation subscription.\n";
                 break;
             case "/sp_create":
-                $model = new TelegramSubscriptions([
-                    'telegram_user_id' => $fromId,
-                    'channel' => TelegramSubscriptions::PROJECT_CREATION
-                ]);
-                $model->save();
-                $response = 'You are subscribed to project creation.';
+                if (!(new TelegramSubscriptions())->subscriberExists($fromId)) {
+                    (new TelegramSubscriptions([
+                        'telegram_user_id' => $fromId,
+                        'channel' => TelegramSubscriptions::PROJECT_CREATION
+                    ]))->save();
+                    $response = 'You are subscribed to project creation.';
+                } else {
+                    $response = 'You are already subscribed.';
+                }
                 break;
         }
 
