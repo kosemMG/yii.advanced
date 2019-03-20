@@ -21,10 +21,7 @@ class ProjectMessengerComponent extends Component
             $title = $model->title;
             $message = "New project '{$title}' has been created.";
 
-            $subscriberIds = TelegramSubscriptions::find()
-                ->select('telegram_user_id')
-                ->where(['channel' => TelegramSubscriptions::PROJECT_CREATION])
-                ->column();
+            $subscriberIds = TelegramSubscriptions::getSubscriptions();
 
             foreach ($subscriberIds as $subscriberId) {
                 /**
@@ -35,5 +32,4 @@ class ProjectMessengerComponent extends Component
             }
         });
     }
-
 }

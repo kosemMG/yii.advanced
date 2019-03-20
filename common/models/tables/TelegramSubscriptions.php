@@ -53,10 +53,7 @@ class TelegramSubscriptions extends \yii\db\ActiveRecord
      */
     public static function subscriberExists($fromId)
     {
-        $subscriberIds = TelegramSubscriptions::find()
-            ->select('telegram_user_id')
-            ->where(['channel' => TelegramSubscriptions::PROJECT_CREATION])
-            ->column();
+        $subscriberIds = static::getSubscriptions();
 
         foreach ($subscriberIds as $subscriberId) {
             if ($subscriberId == $fromId) {
@@ -65,5 +62,17 @@ class TelegramSubscriptions extends \yii\db\ActiveRecord
         }
 
         return false;
+    }
+
+    /**
+     * Returns all subscribers IDs.
+     * @return array
+     */
+    public static function getSubscriptions()
+    {
+        return static::find()
+            ->select('telegram_user_id')
+            ->where(['channel' => static::PROJECT_CREATION])
+            ->column();
     }
 }
