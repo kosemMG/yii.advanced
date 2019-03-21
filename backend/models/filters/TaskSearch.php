@@ -5,6 +5,7 @@ namespace backend\models\filters;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\tables\Tasks;
+use yii\db\ActiveQuery;
 
 /**
  * TaskSearch represents the model behind the search form of `frontend\models\tables\Tasks`.
@@ -74,5 +75,20 @@ class TaskSearch extends Tasks
             ->andFilterWhere(["MONTH(`created_at`)" => $this->created_at_month]);
 
         return $dataProvider;
+    }
+
+    /**
+     * Filters by executor_id.
+     * @param $search
+     * @param ActiveQuery $query
+     * @return ActiveQuery
+     */
+    public function searchParam($search, ActiveQuery $query)
+    {
+        $query->filterWhere([
+            'executor_id' => $search['executor_id']
+        ]);
+
+        return $query;
     }
 }
