@@ -40,9 +40,4 @@ class TelegramController extends Controller
 
         return $this->render('receive', ['messages' => $messages]);
     }
-
-    /*private function getFullName($from)
-    {
-        return $from->getFirstName() . ' ' . $from->getLastName();
-    }*/
 }

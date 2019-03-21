@@ -14,7 +14,7 @@ return [
         ],
         'bot' => [
             'class' => \SonkoDmitry\Yii\TelegramBot\Component::class,
-            'apiToken' => '836668590:AAH3ynH2hO7WpvObyUrysFVeuH9FCipsI9E',
+            'apiToken' => '',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
