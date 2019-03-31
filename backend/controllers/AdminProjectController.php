@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\tables\Projects;
-use common\models\filters\ProjectsSearch;
+use backend\models\filters\ProjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +35,7 @@ class AdminProjectController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ProjectsSearch();
+        $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

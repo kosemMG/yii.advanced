@@ -21,6 +21,7 @@ use yii\widgets\Pjax;
 
 <?php
 $this->title = 'Update Tasks: ' . $taskModel->title;
+$this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['project/index']];
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'tasks'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $taskModel->title;
 $this->params['breadcrumbs'][] = Yii::t('app', 'update');

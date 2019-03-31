@@ -8,7 +8,15 @@
 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+?>
 
+<h3>
+    Project:
+    <?= Html::a($taskModel->project->title,
+        ['project/one', 'id' => $taskModel->project->id],
+        ['class' => 'project-link']); ?>
+</h3><br>
+<?php
 $form = ActiveForm::begin(); ?>
 
 <?= $form->field($taskModel, 'title')->textInput(['maxlength' => true]) ?>

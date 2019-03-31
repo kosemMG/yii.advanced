@@ -26,6 +26,7 @@ use DateTime;
  * @property DateTime $updated_at
  * @property TaskFiles[] $files
  * @property TaskComments[] $comments
+ * @property Projects $project
  */
 class Tasks extends ActiveRecord
 {
@@ -44,7 +45,7 @@ class Tasks extends ActiveRecord
     {
         return [
             [['title'], 'required'],
-            [['creator_id', 'executor_id', 'status_id'], 'integer'],
+            [['creator_id', 'executor_id', 'status_id', 'project_id'], 'integer'],
             [['due_date'], DateValidator::class],
             [['title'], 'string', 'max' => 50],
             [['description'], 'string', 'max' => 255],
@@ -118,5 +119,13 @@ class Tasks extends ActiveRecord
     public function getComments()
     {
         return $this->hasMany(TaskComments::class, ['task_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProject()
+    {
+        return $this->hasOne(Projects::class, ['id' => 'project_id']);
     }
 }

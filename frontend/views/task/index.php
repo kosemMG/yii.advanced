@@ -9,7 +9,7 @@ use yii\widgets\ListView;
 use frontend\widgets\TaskPreviewWidget;
 
 $this->title = 'Tasks';
-
+$this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['project/index']];
 $this->params['breadcrumbs'][] = ['label' => 'Tasks', 'url' => ['index']];
 $this->params['breadcrumbs'][] = 'Find a Task';
 

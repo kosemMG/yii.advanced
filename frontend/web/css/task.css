@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-bottom: 25px;
 }
 
 .task-container {
@@ -59,4 +60,13 @@
     width: 400px;
     height: 100px;
     color: #000;
+}
+
+.project-link {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.project-link:hover {
+    color: #FFFFFF;
 }

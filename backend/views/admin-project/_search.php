@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\filters\ProjectsSearch */
+/* @var $model backend\models\filters\ProjectSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -20,6 +20,12 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'title') ?>
 
     <?= $form->field($model, 'description') ?>
+
+    <?= $form->field($model, 'due_date') ?>
+
+    <?= $form->field($model, 'created_at') ?>
+
+    <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

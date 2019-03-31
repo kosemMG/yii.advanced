@@ -16,13 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'creator_id')->textInput() ?>
-
-    <?= $form->field($model, 'executor_id')->textInput() ?>
-
     <?= $form->field($model, 'due_date')->textInput() ?>
-
-    <?= $form->field($model, 'status_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

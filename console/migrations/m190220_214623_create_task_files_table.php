@@ -1,7 +1,7 @@
 <?php
 
 use yii\db\Migration;
-use frontend\models\tables\Tasks;
+use common\models\tables\Tasks;
 
 /**
  * Handles the creation of table `{{%task_files}}`.

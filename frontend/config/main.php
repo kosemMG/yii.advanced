@@ -45,6 +45,8 @@ return [
             'rules' => [
                 'tasks' => 'task/index',
                 'task/<id:\d+>' => 'task/one',
+                'projects' => 'project/index',
+                'project/<id:\d+>' => 'project/one',
                 [
                     'class' => \yii\rest\UrlRule::class,
                     'controller' => ['v1/task-api']

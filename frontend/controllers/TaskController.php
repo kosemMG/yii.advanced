@@ -113,6 +113,29 @@ class TaskController extends Controller
     }
 
     /**
+     * Creates a new Tasks model.
+     * @param int $id
+     * @return mixed
+     */
+    public function actionCreate(int $id)
+    {
+        $model = new Tasks();
+
+        $params = Yii::$app->request->post();
+        $params['Tasks']['project_id'] = $id;
+
+        if ($model->load($params) && $model->save()) {
+            return $this->redirect(['one', 'id' => $model->id]);
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+            'users' => $this->getUsers(),
+            'statuses' => $this->getTaskStatuses(),
+        ]);
+    }
+
+    /**
      * @param int $id
      * @return string
      * @throws NotFoundHttpException
